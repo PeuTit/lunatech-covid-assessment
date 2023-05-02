@@ -1,0 +1,22 @@
+@(vaccinations: List[Vaccination])
+
+@main("Case page") {
+  <h2>List of vaccination cases by country</h2>
+
+  <table>
+      <tr>
+        <th>Recorded Date</th>
+        <th>Daily Vaccinations Raw</th>
+        <th>Daily Vaccinations</th>
+        <th>iso country</th>
+      </tr>
+      @for(vaccination <- vaccinations) {
+      <tr>
+        <td>@vaccination.recordedDate</td>
+        <td>@vaccination.dailyVaccinationsRaw</td>
+        <td>@vaccination.dailyVaccinations</td>
+        <td>@vaccination.isoCountry</td>
+      </tr>
+    }
+  </table>
+}

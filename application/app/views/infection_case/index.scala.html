@@ -1,0 +1,22 @@
+@(cases: List[Case])
+
+@main("Case page") {
+  <h2>List of infection cases</h2>
+
+  <table>
+      <tr>
+        <th>Recorded Date</th>
+        <th>Infections</th>
+        <th>Deaths</th>
+        <th>iso country</th>
+      </tr>
+      @for(cas <- cases) {
+      <tr>
+        <td>@cas.recordedDate</td>
+        <td>@cas.infections</td>
+        <td>@cas.deaths</td>
+        <td>@cas.isoCountry</td>
+      </tr>
+    }
+  </table>
+}

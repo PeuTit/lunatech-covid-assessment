@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                                   controllers.HomeController.index()
+
+GET     /query                              controllers.QueryController.reportByCountryUpUntilDate(name: String, date: Option[String])
+
+GET     /report/infections                  controllers.ReportController.listInfectionsByCountries(limit: Int ?= 10, order_by: String ?= "DESC")
+GET     /report/vaccinations                controllers.ReportController.listVaccinationsByCountries(limit: Int ?= 10, order_by: String ?= "DESC")
+GET     /report/country                     controllers.ReportController.listCountryWithUnvaccinatedPopulation(limit: Int ?= 10, order_by: String ?= "DESC",threshold: Int ?= 100)
+
+GET     /countries                          controllers.CountryController.list()
+GET     /countries/:name                    controllers.CountryController.show(name: String)
+GET     /continent/:continent               controllers.CountryController.searchContinent(continent: String)
+
+GET     /infectionCases/raw                 controllers.CaseController.listRaw()
+GET     /infectionCases                     controllers.CaseController.list()
+
+GET     /vaccinations/raw                   controllers.VaccinationController.listRaw()
+GET     /vaccinations                       controllers.VaccinationController.list()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
