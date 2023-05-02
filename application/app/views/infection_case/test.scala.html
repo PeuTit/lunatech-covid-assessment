@@ -1,0 +1,24 @@
+@(cases: List[CaseCountryReport])
+
+@main("Case country report page") {
+  <h2>List of cases by country until date</h2>
+
+  <table>
+      <tr>
+        <th>iso country</th>
+        <th>name</th>
+        <th>recorded date</th>
+        <th>infections</th>
+        <th>deaths</th>
+      </tr>
+    @for(caseReport <- cases) {
+      <tr>
+        <td>@caseReport.isoCountry</td>
+        <td>@caseReport.name</td>
+        <td>@caseReport.recordedDate</td>
+        <td>@caseReport.infections</td>
+        <td>@caseReport.deaths</td>
+      </tr>
+    }
+  </table>
+}

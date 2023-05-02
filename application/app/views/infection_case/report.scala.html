@@ -1,0 +1,28 @@
+@(cases: List[CasePopulationReport])
+
+@main("Case Population report page") {
+  <h2>List of cases by country with population</h2>
+
+  <table>
+      <tr>
+        <th>iso country</th>
+        <th>name</th>
+        <th>population</th>
+        <th>Sum infections</th>
+        <th>Infections per 100k Population</th>
+        <th>Sum deaths</th>
+        <th>Deaths per 100k Population</th>
+      </tr>
+    @for(caseReport <- cases) {
+      <tr>
+        <td>@caseReport.isoCountry</td>
+        <td>@caseReport.name</td>
+        <td>@caseReport.population</td>
+        <td>@caseReport.sumInfections</td>
+        <td>@caseReport.infectionsPer100kPop</td>
+        <td>@caseReport.sumDeaths</td>
+        <td>@caseReport.deathsPer100kPop</td>
+      </tr>
+    }
+  </table>
+}

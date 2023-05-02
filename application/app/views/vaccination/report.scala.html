@@ -1,0 +1,24 @@
+@(vaccinations: List[VaccinationPopulationReport])
+
+@main("Vaccination Population report page") {
+  <h2>List of vaccination cases by country with population</h2>
+
+  <table>
+      <tr>
+        <th>iso country</th>
+        <th>name</th>
+        <th>population</th>
+        <th>Sum daily vaccinations raw</th>
+        <th>Percentage of Population Vaccinated</th>
+      </tr>
+    @for(vaccination <- vaccinations) {
+      <tr>
+        <td>@vaccination.isoCountry</td>
+        <td>@vaccination.name</td>
+        <td>@vaccination.population</td>
+        <td>@vaccination.sumDailyVaccinationsRaw</td>
+        <td>@vaccination.percentageVaccinatedPopulation</td>
+      </tr>
+    }
+  </table>
+}

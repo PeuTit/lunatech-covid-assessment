@@ -28,9 +28,9 @@ echo -e "${Bold}Initializing schema...${NC}"
 psql --host=postgres --username=postgres -w -d lunatech_covid -f ./schema.sql &&
 echo -e "\n${Bold}Initializing countries...${NC}"
 psql --host=postgres --username=postgres -w -d lunatech_covid -c "\copy countries(id, code, name, population, continent, wikipedia_link, keywords) FROM 'countries.csv' DELIMITER ',' CSV HEADER"
-echo -e "\n${Bold}Initializing airports...${NC}"
+echo -e "\n${Bold}Initializing cases...${NC}"
 psql --host=postgres --username=postgres -w -d lunatech_covid -c "\copy cases(recorded_date,infections,deaths,iso_country) FROM 'cases.csv' DELIMITER ',' CSV HEADER"
-echo -e "\n${Bold}Initializing runways...${NC}"
+echo -e "\n${Bold}Initializing vaccinations...${NC}"
 psql --host=postgres --username=postgres -w -d lunatech_covid -c "\copy vaccinations(recorded_date,daily_vaccinations_raw,daily_vaccinations,iso_country) FROM 'vaccinations.csv' DELIMITER ',' CSV HEADER"
 
 # To change this banner, go to http://patorjk.com/software/taag/#p=display&f=Big&t=DB%20ready%20to%20use!
